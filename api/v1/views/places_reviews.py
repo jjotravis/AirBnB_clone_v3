@@ -2,11 +2,11 @@
 """Handles RESTFul API action for state objects"""
 
 from api.v1.views import app_views
+from flask import jsonify, request, abort
+from models import storage
 from models.place import Place
 from models.review import Review
 from models.user import User
-from flask import jsonify, request, abort
-from models import storage
 
 
 cls = Review
@@ -83,7 +83,7 @@ def post_review(place_id=None):
                  strict_slashes=False)
 def put_review(review_id):
     """Updates a Review object"""
-    obj = storage.get(cls, review_id_id)
+    obj = storage.get(cls, review_id)
     if obj is None:
         abort(404)
 
