@@ -9,15 +9,18 @@ import os
 app = Flask(__name__)
 app.register_blueprint(app_views, url_prefix="/api/v1")
 
+
 @app.teardown_appcontext
 def teardown(exception):
     """Calls storage.close"""
     storage.close()
 
+
 @app.errorhandler(404)
 def not_found(error):
     """error 404"""
-    return make_response(jsonify({"error" : "Not found"}), 404)
+    return make_response(jsonify({"error": "Not found"}), 404)
+
 
 if __name__ == "__main__":
     p = os.getenv("HBNB_API_PORT", "5000")
