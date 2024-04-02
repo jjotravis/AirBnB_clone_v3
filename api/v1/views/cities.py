@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Handles RESTFul API action for state objects"""
 
 from api.v1.views import app_views

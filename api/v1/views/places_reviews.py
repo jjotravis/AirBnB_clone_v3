@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Handles RESTFul API action for state objects"""
 
 from api.v1.views import app_views
@@ -31,7 +31,7 @@ def get_place_review(place_id):
                  strict_slashes=False)
 def get_review(review_id):
     """Retrieves a review object"""
-    obj = storage.get(cls, review_id_id)
+    obj = storage.get(cls, review_id)
     if obj is None:
         abort(404)
     return jsonify(obj.to_dict())
